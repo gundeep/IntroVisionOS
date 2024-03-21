@@ -91,5 +91,41 @@ def Xform "Root"
             }
         }
     }
+
+    def Xform "SpatialAudio"
+    {
+        def RealityKitComponent "SpatialAudio"
+        {
+            uniform token info:id = "RealityKit.SpatialAudio"
+        }
+    }
+
+    def Xform "ParticleEmitter"
+    {
+        float3 xformOp:translate = (0.029714808, 0.39028627, 0.13049528)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "VFXEmitter"
+        {
+            token info:id = "RealityKit.VFXEmitter"
+
+            def RealityKitStruct "currentState"
+            {
+                int64 burstCount = 10000
+                token emitterShape = "Torus"
+                bool isLocalFields = 0
+                bool spawnInheritParentColor = 0
+
+                def RealityKitStruct "mainEmitter"
+                {
+                    float birthRate = 1000
+                }
+
+                def RealityKitStruct "spawnedEmitter"
+                {
+                }
+            }
+        }
+    }
 }
 

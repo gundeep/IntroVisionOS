@@ -8,6 +8,7 @@
 import SwiftUI
 import RealityKit
 import RealityKitContent
+// add particles to scene.
 
 struct ContentView: View {
 
@@ -15,15 +16,15 @@ struct ContentView: View {
     @State private var showImmersiveSpace = false
     @State private var immersiveSpaceIsShown = false
 
+
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     
 
-    var body: some View {
+    var body: some View {        
         RealityView { content in
             // Add the initial RealityKit content
-            
-
+        
             if let scene = try? await Entity(named: "Scene", in: realityKitContentBundle) {
                 content.add(scene)
             }            
